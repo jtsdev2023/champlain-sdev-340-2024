@@ -6,14 +6,16 @@ class Car {
 private:
     std::string make;
     std::string model;
+    std::string trim;
     std::string edition;
     int year;
 
 public:
     // Constructor
-    Car(std::string make, std::string model, std::string edition, int year) {
+    Car(std::string make, std::string model, std::string trim, std::string edition, int year) {
         this->make = make;
         this->model = model;
+        this->trim = trim;
         this->edition = edition;
         this->year = year;
     }
@@ -108,6 +110,7 @@ public:
         std::cout << "Vehicle Information: " << std::endl;
         std::cout << "Make: " << make << std::endl;
         std::cout << "Model: " << model << std::endl;
+        std::cout << "Trim: " << trim << std::endl;
         std::cout << "Edition: " << edition << std::endl;
         std::cout << "Year: " << year << std::endl;
     }
@@ -115,13 +118,13 @@ public:
 
 int main() {
     // Create a Car object
-    Car myCar("Jeep", "Wrangler", "JK 392", 2020);
+    Car myCar("Jeep", "Wrangler", "Rubicon", "JL 392", 2020);
 
     // Display car information
     myCar.displayInfo();
-    myCar.carIgnition(true);
-    myCar.automaticTransmission('r');
-    myCar.windshieldWipers(true);
+    myCar.carIgnition(false);
+    myCar.automaticTransmission('p');
+    myCar.windshieldWipers(false);
 
     return 0;
 }
