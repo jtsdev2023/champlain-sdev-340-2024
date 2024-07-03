@@ -37,10 +37,48 @@ public:
     void carIgnition(bool ignition) {
         switch (ignition) {
             case true:
-                std::cout << "Ignition is on." << std::endl;
+                std::cout << "Ignition is 'ON'." << std::endl;
                 break;
             case false:
-                std::cout << "Ignition is off." << std::endl;
+                std::cout << "Ignition is 'ON'." << std::endl;
+                break;
+        }
+    }
+
+    // Method to turn on the backup lights
+    void backupLights(bool lights) {
+        switch (lights) {
+            case true:
+                std::cout << "Backup lights are 'ON'." << std::endl;
+                break;
+            case false:
+                std::cout << "Backup lights are 'OFF'." << std::endl;
+                break;
+        }
+    }
+
+
+    // Method to turn on the headlights
+    void headlights(bool lights) {
+        switch (lights) {
+            case true:
+                std::cout << "Headlights are 'ON'." << std::endl;
+                break;
+            case false:
+                std::cout << "Headlights are 'OFF'." << std::endl;
+                break;
+        }
+    }
+
+    // Method to turn on the windshield wipers
+    void windshieldWipers(bool wipers) {
+        switch (wipers) {
+            case true:
+                std::cout << "Windshield wipers are 'ON'." << std::endl;
+                headlights(true);
+                break;
+            case false:
+                std::cout << "Windshield wipers are 'OFF'." << std::endl;
                 break;
         }
     }
@@ -57,6 +95,10 @@ public:
                 break;
             case 'D':
                 std::cout << "Automatic transmission is in 'DRIVE'." << std::endl;
+                break;
+            case 'R':
+                std::cout << "Automatic transmission is in 'REVERSE'." << std::endl;
+                backupLights(true);
                 break;
         }
     }
@@ -78,7 +120,8 @@ int main() {
     // Display car information
     myCar.displayInfo();
     myCar.carIgnition(true);
-    myCar.automaticTransmission('d');
+    myCar.automaticTransmission('r');
+    myCar.windshieldWipers(true);
 
     return 0;
 }
