@@ -6,7 +6,7 @@
 // Define the Automobile class
 // this program compiles and runs with just the Automobile class
 // why do i see some examples similar to the BaseVehicle class below?
-// it seems unnecessary to have a BaseVehicle class
+// it seems unnecessary to have a BaseVehicle class declared like below
 class Automobile;
 
 // Define the BaseVehicle class

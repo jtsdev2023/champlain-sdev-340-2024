@@ -22,7 +22,7 @@ class Automobile
         // Constructor
         Automobile(string make, string model, string trim, string edition, int year)
         {
-            // Initialize member variables... like self.make = make in Python
+            // Initialize member variables... like self.make = make in Python class
             this->make = make;
             this->model = model;
             this->trim = trim;
