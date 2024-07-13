@@ -19,7 +19,6 @@ class Automobile
         int year;
 
     public:
-        // Constructor
         Automobile(string make, string model, string trim, string edition, int year)
         {
             // Initialize member variables... like self.make = make in Python class
@@ -29,6 +28,11 @@ class Automobile
             this->edition = edition;
             this->year = year;
         }
+
+        virtual ~Automobile()
+        {
+            cout << "Automobile destructor called." << endl;
+        };
 
         // Getter for Make
         string getMake() const
