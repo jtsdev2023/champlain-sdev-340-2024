@@ -138,4 +138,20 @@ class Automobile
             cout << "Edition: " << edition << endl;
             cout << "Year: " << year << endl;
         }
+
+        // Looking to implement something similar to Python __reper__() and __str__()
+        // magic methods in C++ to display the object information
+        // found some examples using friend ostream& operator<<
+        // not sure this even makes sense in C++ because it seems like
+        // you just manual code a method to provide the same functionality
+        friend ostream& operator<<(ostream& automobileOsStream, const Automobile& automobile)
+        {
+            automobileOsStream << "Class: Represents an automobile object" << endl;
+            automobileOsStream << "       " << automobile.make;
+            automobileOsStream << " / " << automobile.model;
+            automobileOsStream << " / " << automobile.trim;
+            automobileOsStream << " / " << automobile.edition;
+            automobileOsStream << " / " << automobile.year << endl;
+            return automobileOsStream;
+        };
 };
