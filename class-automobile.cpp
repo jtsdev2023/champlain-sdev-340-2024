@@ -25,6 +25,16 @@ void Automobile::displayInfo() const {
     std::cout << "Year: " << m_year << std::endl;
 };
 
+// friend function
+// void printPrivateDetails(const Automobile& myVehicle) {
+//     std::cout << "Make: " << myVehicle.m_make << std::endl;
+//     std::cout << "Model: " << myVehicle.m_model << std::endl;
+//     std::cout << "Year: " << myVehicle.m_year << std::endl;
+// };
+void printModel(Automobile &object) {
+    std::cout << "Model: " << object.m_model << std::endl;
+};
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 // sports car constructor
@@ -100,9 +110,8 @@ float Truck::getCargoCapacity() const {
     return m_maxCargoCapacity;
 };
 
-// friend function
-void printPrivateDetails(const Automobile& truck) {
-    std::cout << "Make: " << truck.m_make << std::endl;
-    std::cout << "Model: " << truck.m_model << std::endl;
-    std::cout << "Year: " << truck.m_year << std::endl;
+// print info
+void Truck::printInfo() const {
+    std::cout << "Max Cargo Capacity: " << m_maxCargoCapacity << std::endl;
+    std::cout << "Max Payload: " << m_maxPayload << std::endl;
 };

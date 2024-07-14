@@ -14,6 +14,8 @@
 // declare class Automobile
 class Automobile
 {
+    friend void printModel(Automobile &object);
+
     public:
         // constructor
         Automobile(std::string make, std::string model, int year);
@@ -23,9 +25,6 @@ class Automobile
         // need to see why online examples of methods to print/display
         // info use "const" keyword
         virtual void displayInfo() const;
-
-        // friend function
-        friend void printPrivateDetails(const Automobile& vehicle);
 
     private:
         // member variables
@@ -79,9 +78,13 @@ class Truck : public Automobile
         void setCargoCapacity(int cargoCapacity);
         float getCargoCapacity() const;
 
+        // print info
+        void printInfo() const;
 
     private:
         // member variables
         int m_maxPayload;
         int m_maxCargoCapacity;     // cubic feet
+
+    
 };
