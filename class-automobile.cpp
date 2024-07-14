@@ -4,7 +4,7 @@
 
 
 // constructor
-Automobile::Automobile(string make, string model, int year) : 
+Automobile::Automobile(std::string make, std::string model, int year) : 
     m_make(make), m_model(model), m_year(year)
 {
     this->m_make = make;
@@ -13,24 +13,23 @@ Automobile::Automobile(string make, string model, int year) :
 
 };
 
-
-
 // destructor
 Automobile::~Automobile() {
-    // cout << "destructor called" << endl;
+    // std::cout << "destructor called" << std::endl;
 };
 
 // display info method
-void Automobile::displayInfo() {
-    cout << "Make: " << m_make << endl;
-    cout << "Model: " << m_model << endl;
-    cout << "Year: " << m_year << endl;
+void Automobile::displayInfo() const {
+    std::cout << "Make: " << m_make << std::endl;
+    std::cout << "Model: " << m_model << std::endl;
+    std::cout << "Year: " << m_year << std::endl;
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 // sports car constructor
-SportsCar::SportsCar(string make, string model, int year, int topSpeed, float zeroToSixty) : 
+SportsCar::SportsCar(
+    std::string make, std::string model, int year, int topSpeed, float zeroToSixty) : 
     Automobile(make, model, year), m_topSpeed(topSpeed), m_zeroToSixty(zeroToSixty)
 {
     this->m_topSpeed = topSpeed;
@@ -39,14 +38,29 @@ SportsCar::SportsCar(string make, string model, int year, int topSpeed, float ze
 
 // desconstrutor
 SportsCar::~SportsCar() {
-    // cout << "sports car destructor called" << endl;
+    // std::cout << "sports car destructor called" << std::endl;
 };
 
 // method to display sports car info
-void SportsCar::displayInfo() {
+void SportsCar::displayInfo() const {
     Automobile::displayInfo();
-    cout << "Top Speed: " << *topSpeedPointer << endl;
-    cout << "0-60 Time: " << m_zeroToSixty << endl;
+    std::cout << "Top Speed: " << *topSpeedPointer << std::endl;
+    std::cout << "0-60 Time: " << m_zeroToSixty << std::endl;
+};
+
+// setter and getter methods
+void SportsCar::setTopSpeed(int topSpeed) {
+    *topSpeedPointer = topSpeed;
+};
+int SportsCar::getTopSpeed() const {
+    return *topSpeedPointer;
+};
+
+void SportsCar::setZeroToSixty(float zeroToSixty) {
+    this->m_zeroToSixty = zeroToSixty;
+};
+float SportsCar::getZeroToSixty() const {
+    return m_zeroToSixty;
 };
 
 
@@ -54,7 +68,7 @@ void SportsCar::displayInfo() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 // truck constructor
-Truck::Truck(string make, string model, int year, int towingCapacity, int payload) : 
+Truck::Truck(std::string make, std::string model, int year, int towingCapacity, int payload) : 
     Automobile(make, model, year), m_maxCargoCapacity(towingCapacity), m_maxPayload(payload)
 {
     this->m_maxCargoCapacity = towingCapacity;
@@ -63,12 +77,32 @@ Truck::Truck(string make, string model, int year, int towingCapacity, int payloa
 
 // truck destructor
 Truck::~Truck() {
-    // cout << "truck destructor called" << endl;
+    // std::cout << "truck destructor called" << std::endl;
 };
 
 // method to display truck info
-void Truck::displayInfo() {
-    cout << "Model: " << m_model << endl;
-    cout << "Towing Capacity: " << m_maxCargoCapacity << endl;
-    cout << "Payload: " << m_maxPayload << endl;
+void Truck::displayInfo() const {
+    std::cout << "Model: " << "TEMP" << std::endl;
+};
+
+// setter and getter methods
+void Truck::setPayload(int payload) {
+    this->m_maxPayload = payload;
+};
+int Truck::getPayload() const {
+    return m_maxPayload;
+};
+
+void Truck::setCargoCapacity(int cargoCapacity) {
+    this->m_maxCargoCapacity = cargoCapacity;
+};
+float Truck::getCargoCapacity() const {
+    return m_maxCargoCapacity;
+};
+
+// friend function
+void printPrivateDetails(const Automobile& truck) {
+    std::cout << "Make: " << truck.m_make << std::endl;
+    std::cout << "Model: " << truck.m_model << std::endl;
+    std::cout << "Year: " << truck.m_year << std::endl;
 };

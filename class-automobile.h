@@ -3,41 +3,56 @@
 #pragma once
 
 #include <string>
+#include <memory>
 #include <iostream>
 
-using namespace std;
+// watched a video that suggested using the std namespace is bad practice
+// using namespace std;
 
 
 
 // declare class Automobile
-class Automobile {
+class Automobile
+{
     public:
         // constructor
-        Automobile(string make, string model, int year);
+        Automobile(std::string make, std::string model, int year);
         // destructor
         ~Automobile();
         // method vs. member function?
-        virtual void displayInfo();
+        // need to see why online examples of methods to print/display
+        // info use "const" keyword
+        virtual void displayInfo() const;
+
+        // friend function
+        friend void printPrivateDetails(const Automobile& vehicle);
 
     private:
         // member variables
         // seems to be some convention to name member variables with m_ prefix
         // not sure i understand it yet
-        string m_make;
-        string m_model;
+        std::string m_make;
+        std::string m_model;
         int m_year;
 };
 
 
 // sports car derived class
-class SportsCar : public Automobile {
+class SportsCar : public Automobile
+{
     public:
         // constructor
-        SportsCar(string make, string model, int year, int topSpeed, float zeroToSixty);
+        SportsCar(std::string make, std::string model, int year, int topSpeed, float zeroToSixty);
         // destructor
         ~SportsCar();
         // method
-        void displayInfo() override;
+        void displayInfo() const override;
+
+        // setter and getter methods
+        void setTopSpeed(int topSpeed);
+        int getTopSpeed() const;
+        void setZeroToSixty(float zeroToSixty);
+        float getZeroToSixty() const;
 
     private:
         // member variables
@@ -48,14 +63,22 @@ class SportsCar : public Automobile {
 
 
 // truck derived class
-class Truck : public Automobile {
+class Truck : public Automobile
+{
     public:
         // constructor
-        Truck(string make, string model, int year, int towingCapacity, int payload);
+        Truck(std::string make, std::string model, int year, int maxCargoCapacity, int payload);
         // destructor
         ~Truck();
         // method
-        void displayInfo() override;
+        void displayInfo() const override;
+
+        // setter and getter methods
+        void setPayload(int payload);
+        int getPayload() const;
+        void setCargoCapacity(int cargoCapacity);
+        float getCargoCapacity() const;
+
 
     private:
         // member variables
