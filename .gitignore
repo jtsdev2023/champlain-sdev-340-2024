@@ -30,4 +30,7 @@
 *.exe
 *.out
 *.app
+
+# Custom
 bash-cpp-compile-run.sh
+run
