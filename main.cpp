@@ -174,9 +174,9 @@ int main()
     std::cout << std::endl;
 
     // setter and getter
-    SportsCar sportsCar2("Corvette", "E-Ray", 2025, 183, 2.4);
-    sportsCar2.setTopSpeed(220);
-    sportsCar2.setZeroToSixty(2.7);
+    SportsCar sportsCar2("Corvette", "E-Ray", 2025);
+    sportsCar2.setTopSpeed(183);
+    sportsCar2.setZeroToSixty(2.4);
     sportsCar2.displayInfo();
 
     std::cout << std::endl;
