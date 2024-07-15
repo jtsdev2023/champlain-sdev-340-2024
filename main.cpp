@@ -1,6 +1,7 @@
 // main.cpp
 
 #include <string>
+#include <memory>
 #include <iostream>
 
 // base class
@@ -15,22 +16,22 @@ class Automobile
         // declare variables
         std::string make;
         std::string model;
-        int year;
+        // smart pointer for year
+        std::unique_ptr <int> year;
 
         // constructor
         Automobile(std::string make, std::string model, int year) :
-            make(make), model(model), year(year) {}
+            make(make), model(model), year(std::make_unique<int>(year)) {}
 
         // display info member function
         virtual void displayInfo() const {
             std::cout << "Make: " << make << std::endl;
             std::cout << "Model: " << model << std::endl;
-            std::cout << "Year: " << year << std::endl;
+            std::cout << "Year: " << *year << std::endl;
         }
 };
 
 // friend function
-
 std::string getModel(Automobile &automobile) {
     return automobile.model;
 }
@@ -104,6 +105,31 @@ class Truck : public Automobile
         void displayInfo() const override {
             std::cout << "Model: " << Truck::model << std::endl;
         }
+
+    public:
+        // constructor using mutators setter and getter
+        Truck(std::string make, std::string model, int year) :
+            Automobile(make, model, year) {}
+
+        // setter - cargo size
+        void setCargoSize(double cargoSize) {
+            Truck::cargoSize = cargoSize;
+        }
+
+        // setter - payload
+        void setPayload(double payload) {
+            Truck::payload = payload;
+        }
+
+        // getter - cargo size
+        double getCargoSize() const {
+            return cargoSize;
+        }
+
+        // getter - payload
+        double getPayload() const {
+            return payload;
+        }
 };
 
 
@@ -123,7 +149,7 @@ int main()
     sportsCar1.displayInfo();
 
     std::cout << std::endl;
-    
+
     // setter and getter
     SportsCar sportsCar2("Lamborghini", "Aventador", 2023, 217, 2.8);
     sportsCar2.setTopSpeed(220);
@@ -135,6 +161,14 @@ int main()
     // derived class object - truck
     Truck truck1("Ford", "F-150", 2023, 52.8, 2000);
     truck1.displayInfo();
+
+    std::cout << std::endl;
+
+    // setter and getter
+    Truck truck2("Chevrolet", "Silverado", 2024);
+    truck2.setCargoSize(53.8);
+    truck2.setPayload(2100);
+    truck2.displayInfo();
 
     std::cout << std::endl;
     
