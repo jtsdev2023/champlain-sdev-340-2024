@@ -10,11 +10,11 @@
 // base class
 class Automobile
 {
-    // friend function
+    // friend function declaration
     friend std::string getVIN(Automobile &);
 
     private:
-        // member function to generate a random hex string, now private
+        // code found online to generate a hex string which be used as a VIN
         std::string generateRandomHexString(size_t length) const {
             std::string hexChars = "0123456789ABCDEF";
             std::stringstream ss;
@@ -29,6 +29,7 @@ class Automobile
             return ss.str();
         }
 
+        // VIN will be used to dominate the friend function
         std::string VIN = generateRandomHexString(17);
 
     public:
@@ -51,7 +52,7 @@ class Automobile
 
 };
 
-// friend function
+// friend function definition
 std::string getVIN(Automobile &automobile) {
     return automobile.VIN;
 }
@@ -167,13 +168,13 @@ int main()
     std::cout << std::endl;
 
     // derived class object - sports car
-    SportsCar sportsCar1("Ferrari", "F8 Tributo", 2022, 211, 2.9);
+    SportsCar sportsCar1("Tesla", "Model S Plaid", 2023, 200, 2.3);
     sportsCar1.displayInfo();
 
     std::cout << std::endl;
 
     // setter and getter
-    SportsCar sportsCar2("Lamborghini", "Aventador", 2023, 217, 2.8);
+    SportsCar sportsCar2("Corvette", "E-Ray", 2025, 183, 2.4);
     sportsCar2.setTopSpeed(220);
     sportsCar2.setZeroToSixty(2.7);
     sportsCar2.displayInfo();
@@ -196,6 +197,9 @@ int main()
 
     // using friend function
     std::cout << "Sports Car 1 VIN: " << getVIN(sportsCar1) << std::endl;
+    std::cout << "Sports Car 2 VIN: " << getVIN(sportsCar2) << std::endl;
+    std::cout << "Truck 1 VIN: " << getVIN(truck1) << std::endl;
+    std::cout << "Truck 2 VIN: " << getVIN(truck2) << std::endl;
 
     std::cout << std::endl;
     
