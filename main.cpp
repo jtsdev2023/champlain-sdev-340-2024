@@ -1,16 +1,35 @@
 // main.cpp
 
+#include <random>
 #include <string>
 #include <memory>
+#include <sstream>
 #include <iostream>
+
 
 // base class
 class Automobile
 {
-    // friend std::string getModel(Automobile &);
+    // friend function
+    friend std::string getVIN(Automobile &);
 
     private:
+        // member function to generate a random hex string, now private
+        std::string generateRandomHexString(size_t length) const {
+            std::string hexChars = "0123456789ABCDEF";
+            std::stringstream ss;
+            std::random_device rd;
+            std::mt19937 generator(rd());
+            std::uniform_int_distribution<> distribution(0, hexChars.size() - 1);
 
+            for(size_t i = 0; i < length; ++i) {
+                ss << hexChars[distribution(generator)];
+            }
+
+            return ss.str();
+        }
+
+        std::string VIN = generateRandomHexString(17);
 
     public:
         // declare variables
@@ -29,11 +48,12 @@ class Automobile
             std::cout << "Model: " << model << std::endl;
             std::cout << "Year: " << *year << std::endl;
         }
+
 };
 
 // friend function
-std::string getModel(Automobile &automobile) {
-    return automobile.model;
+std::string getVIN(Automobile &automobile) {
+    return automobile.VIN;
 }
 
 // sports car derived class
@@ -55,7 +75,9 @@ class SportsCar : public Automobile
         // display info member function
         void displayInfo() const override {
             Automobile::displayInfo();
-            std::cout << "Top Speed: " << topSpeed << " MPH" << std::endl;
+            // using raw pointer for top speed variable
+            double* topSpeedPointer = const_cast<double*>(&topSpeed);
+            std::cout << "Top Speed: " << *topSpeedPointer << " MPH" << std::endl;
             std::cout << "Zero to Sixty: " << zeroToSixty << " seconds" << std::endl;
         }
 
@@ -169,6 +191,11 @@ int main()
     truck2.setCargoSize(53.8);
     truck2.setPayload(2100);
     truck2.displayInfo();
+
+    std::cout << std::endl;
+
+    // using friend function
+    std::cout << "Sports Car 1 VIN: " << getVIN(sportsCar1) << std::endl;
 
     std::cout << std::endl;
     
