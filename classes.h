@@ -7,7 +7,6 @@
 #include <iostream>
 
 
-
 // class automobile
 class Automobile
 {

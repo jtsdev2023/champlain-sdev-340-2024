@@ -1,0 +1,27 @@
+# test
+---
+# sedan
+- transmission: automatic
+  drivetrain: front-wheel drive
+  engine: internal combustion engine
+  fuel: gasoline
+  doors: 4
+  wheels: 4
+  battery: 12V
+# truck
+- transmission: manual
+  drivetrain: four-wheel drive
+  engine: internal combustion engine
+  fuel: diesel
+  doors: 2
+  wheels: 4
+  battery: 12V
+# electric car
+- transmission: automatic
+  drivetrain: all-wheel drive
+  engine: electric motor
+  fuel: lithium-ion battery
+  doors: 4
+  wheels: 4
+  battery: 400V
+...
