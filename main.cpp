@@ -29,7 +29,7 @@ class Automobile
             return ss.str();
         }
 
-        // VIN will be used to dominate the friend function
+        // VIN will be used to demonstrate the friend function
         std::string VIN = generateRandomHexString(17);
 
     public:
