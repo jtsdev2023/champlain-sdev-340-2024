@@ -12,7 +12,16 @@ class Automobile
 {
     public:
     // constructor
-    Automobile(std::string make, std::string model, int year);
+    Automobile(
+        std::string type,
+        std::string transmission,
+        std::string drivetrain,
+        std::string engine,
+        std::string fuel,
+        std::string doors,
+        std::string wheels,
+        std::string battery
+    );
     // destructor
     ~Automobile();
 
@@ -21,9 +30,14 @@ class Automobile
 
     private:
     // member variables
-    std::string m_make;
-    std::string m_model;
-    int m_year;
+    std::string m_type;
+    std::string m_transmission;
+    std::string m_drivetrain;
+    std::string m_engine;
+    std::string m_fuel;
+    std::string m_doors;
+    std::string m_wheels;
+    std::string m_battery;
 };
 
 
@@ -32,7 +46,7 @@ class Sedan : public Automobile
 {
     public:
     // constructor
-    Sedan(std::string make, std::string model, int year);
+    Sedan(std::string type, std::string transmission, std::string drivetrain, std::string engine, std::string fuel, std::string doors, std::string wheels, std::string battery);
     // destructor
     ~Sedan();
 };
@@ -43,7 +57,7 @@ class Truck : public Automobile
 {
     public:
     // constructor
-    Truck(std::string make, std::string model, int year);
+    Truck(std::string type, std::string transmission, std::string drivetrain, std::string engine, std::string fuel, std::string doors, std::string wheels, std::string battery);
     // destructor
     ~Truck();
 };

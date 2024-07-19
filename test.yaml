@@ -1,7 +1,8 @@
 # test
 ---
 # sedan
-- transmission: automatic
+- type: sedan
+  transmission: automatic
   drivetrain: front-wheel drive
   engine: internal combustion engine
   fuel: gasoline
@@ -9,7 +10,8 @@
   wheels: 4
   battery: 12V
 # truck
-- transmission: manual
+- type: truck
+  transmission: manual
   drivetrain: four-wheel drive
   engine: internal combustion engine
   fuel: diesel
@@ -17,7 +19,8 @@
   wheels: 4
   battery: 12V
 # electric car
-- transmission: automatic
+- type: sedan
+  transmission: automatic
   drivetrain: all-wheel drive
   engine: electric motor
   fuel: lithium-ion battery

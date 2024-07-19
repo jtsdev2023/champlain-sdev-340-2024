@@ -4,8 +4,24 @@
 
 
 // class Automobile constructor
-Automobile::Automobile(std::string make, std::string model, int year)
-    : m_make(make), m_model(model), m_year(year)
+Automobile::Automobile(
+    std::string type,
+    std::string transmission,
+    std::string drivetrain,
+    std::string engine,
+    std::string fuel,
+    std::string doors,
+    std::string wheels,
+    std::string battery
+)
+    : m_type(type),
+        m_transmission(transmission),
+        m_drivetrain(drivetrain),
+        m_engine(engine),
+        m_fuel(fuel),
+        m_doors(doors),
+        m_wheels(wheels),
+        m_battery(battery)
 {
 
     // std::cout << "Automobile Constructor Called" << std::endl;
@@ -15,9 +31,14 @@ Automobile::Automobile(std::string make, std::string model, int year)
 // method to print the make, model, and year of the automobile
 void Automobile::displayInfo()
 {
-    std::cout << "Make: " << m_make << std::endl;
-    std::cout << "Model: " << m_model << std::endl;
-    std::cout << "Year: " << m_year << std::endl;
+    std::cout << "Type: " << m_type << std::endl;
+    std::cout << "Transmission: " << m_transmission << std::endl;
+    std::cout << "Drivetrain: " << m_drivetrain << std::endl;
+    std::cout << "Engine: " << m_engine << std::endl;
+    std::cout << "Fuel: " << m_fuel << std::endl;
+    std::cout << "Doors: " << m_doors << std::endl;
+    std::cout << "Wheels: " << m_wheels << std::endl;
+    std::cout << "Battery: " << m_battery << std::endl;
 };
 
 
@@ -29,13 +50,15 @@ Automobile::~Automobile()
 
 
 // class Sedan constructor
-Sedan::Sedan(std::string make, std::string model, int year) : Automobile(make, model, year)
+Sedan::Sedan(std::string type, std::string transmission, std::string drivetrain, std::string engine, std::string fuel, std::string doors, std::string wheels, std::string battery) : Automobile(type, transmission, drivetrain, engine, fuel, doors, wheels, battery)
 {
-    std::string m_make = make;
-    std::string m_model = model;
-    int m_year = year;
-
-    // std::cout << "Sedan Constructor Called" << std::endl;
+    std::string m_type = type;
+    std::string m_transmission = transmission;
+    std::string m_drivetrain = drivetrain;
+    std::string m_engine = engine;
+    std::string m_fuel = fuel;
+    std::string m_wheels = wheels;
+    std::string m_battery = battery;
 };
 
 
@@ -47,11 +70,25 @@ Sedan::~Sedan()
 
 
 // class Truck constructor
-Truck::Truck(std::string make, std::string model, int year) : Automobile(make, model, year)
+Truck::Truck(
+    std::string type,
+    std::string transmission,
+    std::string drivetrain,
+    std::string engine,
+    std::string fuel,
+    std::string doors,
+    std::string wheels,
+    std::string battery
+) : Automobile(type, transmission, drivetrain, engine, fuel, doors, wheels, battery)
 {
-    std::string m_make = make;
-    std::string m_model = model;
-    int m_year = year;
+    std::string m_type = type;
+    std::string m_transmission = transmission;
+    std::string m_drivetrain = drivetrain;
+    std::string m_engine = engine;
+    std::string m_fuel = fuel;
+    std::string m_doors = doors;
+    std::string m_wheels = wheels;
+    std::string m_battery = battery;
 
     // std::cout << "Truck Constructor Called" << std::endl;
 };
