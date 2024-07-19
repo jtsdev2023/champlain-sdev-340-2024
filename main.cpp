@@ -1,18 +1,11 @@
 // main.cpp
 
-#include <fstream>
+
 #include <iostream>
-
-#include "yaml-cpp/yaml.h"
 #include "classes.h"
+#include "read-yaml.cpp"
 
 
-// read yaml file
-YAML::Node readYamlFile(const std::string& filename)
-{
-    YAML::Node yamlObject = YAML::LoadFile(filename);
-    return yamlObject;
-};
 
 // main
 int main()
@@ -35,8 +28,24 @@ int main()
                 dict["wheels"].as<std::string>(),
                 dict["battery"].as<std::string>()
             );
-            
+
             sedan.displayInfo();
+        }
+
+        else if (dict["type"].as<std::string>() == "truck")
+        {
+            Truck truck(
+                dict["type"].as<std::string>(),
+                dict["transmission"].as<std::string>(),
+                dict["drivetrain"].as<std::string>(),
+                dict["engine"].as<std::string>(),
+                dict["fuel"].as<std::string>(),
+                dict["doors"].as<std::string>(),
+                dict["wheels"].as<std::string>(),
+                dict["battery"].as<std::string>()
+            );
+
+            truck.displayInfo();
         }
 
     }
