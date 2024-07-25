@@ -169,13 +169,13 @@ int main()
 
     // base class object
     Automobile car("Honda", "Accord", 2024);
-    car.displayInfo("key1", "value1");
+    car.displayInfo("Chevy", "Cruz");
 
     std::cout << std::endl;
 
     // derived class object - sports car
     SportsCar sportsCar1("Tesla", "Model S Plaid", 2023, 200, 2.3);
-    // sportsCar1.displayInfo("key2", "value2");
+    sportsCar1.displayInfo("Dodge", "Dart");
 
     std::cout << std::endl;
 
@@ -183,13 +183,13 @@ int main()
     SportsCar sportsCar2("Corvette", "E-Ray", 2025);
     sportsCar2.setTopSpeed(183);
     sportsCar2.setZeroToSixty(2.4);
-    // sportsCar2.displayInfo("key 3", "value 3");
+    sportsCar2.displayInfo("Kia", "Soul");
 
     std::cout << std::endl;
 
     // derived class object - truck
     Truck truck1("Ford", "F-150", 2023, 52.8, 2000);
-    // truck1.displayInfo("key4", "value4");
+    truck1.displayInfo("Dodge", "Ram");
 
     std::cout << std::endl;
 
@@ -197,7 +197,7 @@ int main()
     Truck truck2("Chevrolet", "Silverado", 2024);
     truck2.setCargoSize(53.8);
     truck2.setPayload(2100);
-    // truck2.displayInfo("key5", "value5");
+    truck2.displayInfo("Toyota", "Tundra");
 
     std::cout << std::endl;
 
